@@ -1,2 +1,2 @@
 # Python-Stack
-Repository for storing Python Fundamentals work.
+Repository for storing Python stack assignments.
