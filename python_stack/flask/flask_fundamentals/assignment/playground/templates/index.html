@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Playground</title>
+	<style>	
+	body {
+		text-align: center
+	}
+	.box {
+		display: inline-block;
+		background: {{ color }};
+		height: 100px;
+		width: 100px;
+		margin: 20px;
+	}
+	</style>
+</head>
+<body>
+	<h1>Welcome</h1>
+	{% for x in range(repeat): %}
+	<div class='box'></div>
+	{% endfor %}
+</body>
+</html>
