@@ -1,0 +1,8 @@
+thead, tr, th, td {
+	padding: 10px;
+}
+
+thead {
+	background: gray;
+	color: white;
+}
