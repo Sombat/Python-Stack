@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse 
 
 def index(request):
-    # return render(request, "index.html")
 	return HttpResponse(f"placeholder to later display a list of all blogs")
 
 def new(request):
