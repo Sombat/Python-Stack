@@ -1,0 +1,40 @@
+dojo1 = Dojo.objects.create(name="Dragon Dojo", city="Dragon City", state="VA")
+
+dojo2 = Dojo.objects.create(name="Wolf Dojo", city="Wolf Village", state="DC")
+
+dojo3 = Dojo.objects.create(name="Crane Dojo", city="Cranopolis", state="MD")
+
+dojo1.delete()
+
+dojo2.delete()
+
+dojo3.delete()
+
+dojo4 = Dojo.objects.create(name="Bear Dojo", city="Bear City", state="VA")
+
+dojo5 = Dojo.objects.create(name="Tiger Dojo", city="Tiger Village", state="DC")
+
+dojo6 = Dojo.objects.create(name="Monkey Dojo", city="Monkey Mountain", state="MD")
+
+Bear1 = Ninja.objects.create(first_name="Bear", last_name="One", dojo_id=Dojo.objects.get(name="Bear Dojo"))
+Bear2 = Ninja.objects.create(first_name="Bear", last_name="Two", dojo_id=Dojo.objects.get(name="Bear Dojo"))
+Bear3 = Ninja.objects.create(first_name="Bear", last_name="Three", dojo_id=Dojo.objects.get(name="Bear Dojo"))
+
+Tiger1 = Ninja.objects.create(first_name="Tiger", last_name="One", dojo_id=Dojo.objects.get(name="Tiger Dojo"))
+Tiger2 = Ninja.objects.create(first_name="Tiger", last_name="Two", dojo_id=Dojo.objects.get(name="Tiger Dojo"))
+Tiger3 = Ninja.objects.create(first_name="Tiger", last_name="Three", dojo_id=Dojo.objects.get(name="Tiger Dojo"))
+
+Monkey1 = Ninja.objects.create(first_name="Monkey", last_name="One", dojo_id=Dojo.objects.get(name="Monkey Dojo"))
+Monkey2 = Ninja.objects.create(first_name="Monkey", last_name="Two", dojo_id=Dojo.objects.get(name="Monkey Dojo"))
+Monkey3 = Ninja.objects.create(first_name="Monkey", last_name="Three", dojo_id=Dojo.objects.get(name="Monkey Dojo"))
+
+first_dojo = Dojo.objects.first()
+ninjas = Ninja.objects.filter(dojo_id=first_dojo)
+
+last_dojo = Dojo.objects.last()
+ninjas2 = Ninja.objects.filter(dojo_id=last_dojo)
+
+last_ninja = Ninja.objects.last()
+last_ninja.dojo_id.name
+
+dojo7 = Dojo.objects.create(name="Super Dojo", city="Super Sity", state="SS", desc = "This new gym just appeared out of the sky, and have sent fighters out to every other gym in the DC Metro area!")
