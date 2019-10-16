@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+class ShowAdmin(admin.ModelAdmin):
+	list_display = ('title', 'network', 'id')
+
+admin.site.register(Show, ShowAdmin)

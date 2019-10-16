@@ -26,6 +26,13 @@
 		</div>
 		<div class="row">
 			<div class="col mb-5">
+				{% if messages %}
+				<ul class="messages">    
+					{% for message in messages %}    
+						<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+					{% endfor %}
+				</ul>
+				{% endif %}
 				<form id='main-form'action='/shows/{{ this_show.id }}/update' method='post'>
 					{% csrf_token %}
 					<div class="form-group row">
