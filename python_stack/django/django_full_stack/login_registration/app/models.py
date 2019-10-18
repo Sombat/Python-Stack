@@ -41,3 +41,16 @@ class User(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	objects = UserManager()
+
+class Message(models.Model):
+	user = models.ForeignKey(User, related_name="messages", on_delete=models.CASCADE)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+	message = models.TextField()
+
+class Comment(models.Model):
+	user = models.ForeignKey(User, related_name="comments_user", on_delete=models.CASCADE)
+	message = models.ForeignKey(Message, related_name="comments_message", on_delete=models.CASCADE)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+	comment = models.TextField()

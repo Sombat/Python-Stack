@@ -43,3 +43,26 @@ def success(request):
 def logout(request):
 	request.session.flush()
 	return redirect('/')
+
+def wall(request):
+	context = {
+		"all_messages": Message.objects.all().order_by('-created_at'),
+		"all_comments": Comment.objects.all().order_by('-created_at'),
+	}
+	# print(Comment.objects.all())
+	return render(request,'wall.html', context)
+
+def post_message(request):
+	logged_in_user = User.objects.get(id=request.session['logged_in_user_id'])
+	newMessage = Message.objects.create(message=request.POST['wall-message'], user=logged_in_user)
+	return redirect('/wall')
+
+def post_comment(request):
+	logged_in_user = User.objects.get(id=request.session['logged_in_user_id'])
+	message_to_comment_on = Message.objects.get(id=request.POST['message_to_comment_on_id'])
+	# print(message_to_comment_on)
+	# print(logged_in_user.last_name)
+	# print(request.POST['wall-comment'])
+	# need to get id and attach comments to right message, also add to template
+	newComment = Comment.objects.create(comment=request.POST['wall-comment'], user=logged_in_user, message=message_to_comment_on)
+	return redirect('/wall')

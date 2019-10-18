@@ -24,4 +24,7 @@ urlpatterns = [
     path('login',views.login),
     path('success',views.success),
     path('logout',views.logout),
+    path('wall',views.wall),
+    path('post-message',views.post_message),
+    path('post-comment',views.post_comment),
 ]
